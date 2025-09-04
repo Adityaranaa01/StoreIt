@@ -76,7 +76,7 @@ Make sure you have the following installed on your machine:
 
 ```bash
 git clone https://github.com/Adityaranaa01/StoreIt.git
-cd storage_management_solution
+cd StoreIt
 ```
 
 **Installation**
