@@ -1,0 +1,399 @@
+{
+    "projectId": "68b865600037a74cb6d8",
+    "endpoint": "https://fra.cloud.appwrite.io/v1",
+    "projectName": "StoreIt",
+    "settings": {
+        "services": {
+            "account": true,
+            "avatars": true,
+            "databases": true,
+            "locale": true,
+            "health": true,
+            "storage": true,
+            "teams": true,
+            "users": true,
+            "sites": true,
+            "functions": true,
+            "graphql": true,
+            "messaging": true
+        },
+        "auth": {
+            "methods": {
+                "jwt": true,
+                "phone": true,
+                "invites": true,
+                "anonymous": true,
+                "email-otp": true,
+                "magic-url": true,
+                "email-password": true
+            },
+            "security": {
+                "duration": 31536000,
+                "limit": 0,
+                "sessionsLimit": 10,
+                "passwordHistory": 0,
+                "passwordDictionary": false,
+                "personalDataCheck": false,
+                "sessionAlerts": false,
+                "mockNumbers": []
+            }
+        }
+    },
+    "databases": [
+        {
+            "$id": "68b865f5002676f28998",
+            "name": "general",
+            "enabled": true
+        }
+    ],
+    "collections": [
+        {
+            "$id": "users",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "68b865f5002676f28998",
+            "name": "users",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "fullName",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "email",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "format": "email",
+                    "default": null
+                },
+                {
+                    "key": "avatar",
+                    "type": "string",
+                    "required": false,
+                    "array": false,
+                    "size": 1073741824,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "accountId",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "files",
+                    "type": "relationship",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "files",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "owner",
+                    "onDelete": "setNull",
+                    "side": "child"
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "files",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "68b865f5002676f28998",
+            "name": "files",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "name",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "url",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "format": "url",
+                    "default": null
+                },
+                {
+                    "key": "type",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "elements": [
+                        "document",
+                        "image",
+                        "video",
+                        "audio",
+                        "other"
+                    ],
+                    "format": "enum",
+                    "default": null
+                },
+                {
+                    "key": "bucketField",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "accountId",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "owner",
+                    "type": "relationship",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "users",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "files",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "extension",
+                    "type": "string",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "size",
+                    "type": "integer",
+                    "required": false,
+                    "array": false,
+                    "min": -9223372036854775808,
+                    "max": 9223372036854775807,
+                    "default": null
+                },
+                {
+                    "key": "users",
+                    "type": "string",
+                    "required": false,
+                    "array": true,
+                    "size": 1073741824,
+                    "default": null,
+                    "encrypt": false
+                }
+            ],
+            "indexes": []
+        }
+    ],
+    "tables": [
+        {
+            "$id": "users",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "68b865f5002676f28998",
+            "name": "users",
+            "enabled": true,
+            "columns": [
+                {
+                    "key": "fullName",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "email",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "format": "email",
+                    "default": null
+                },
+                {
+                    "key": "avatar",
+                    "type": "string",
+                    "required": false,
+                    "array": false,
+                    "size": 1073741824,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "accountId",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "files",
+                    "type": "relationship",
+                    "required": false,
+                    "array": false,
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "owner",
+                    "onDelete": "setNull",
+                    "side": "child"
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "files",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "68b865f5002676f28998",
+            "name": "files",
+            "enabled": true,
+            "columns": [
+                {
+                    "key": "name",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "url",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "format": "url",
+                    "default": null
+                },
+                {
+                    "key": "type",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "elements": [
+                        "document",
+                        "image",
+                        "video",
+                        "audio",
+                        "other"
+                    ],
+                    "format": "enum",
+                    "default": null
+                },
+                {
+                    "key": "bucketField",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "accountId",
+                    "type": "string",
+                    "required": true,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "owner",
+                    "type": "relationship",
+                    "required": false,
+                    "array": false,
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "files",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "extension",
+                    "type": "string",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "size",
+                    "type": "integer",
+                    "required": false,
+                    "array": false,
+                    "min": -9223372036854775808,
+                    "max": 9223372036854775807,
+                    "default": null
+                },
+                {
+                    "key": "users",
+                    "type": "string",
+                    "required": false,
+                    "array": true,
+                    "size": 1073741824,
+                    "default": null,
+                    "encrypt": false
+                }
+            ],
+            "indexes": []
+        }
+    ],
+    "buckets": [
+        {
+            "$id": "68b86927000eb0ae6bc0",
+            "$permissions": [],
+            "fileSecurity": false,
+            "name": "file_storage",
+            "enabled": true,
+            "maximumFileSize": 50000000,
+            "allowedFileExtensions": [],
+            "compression": "none",
+            "encryption": true,
+            "antivirus": true
+        }
+    ]
+}

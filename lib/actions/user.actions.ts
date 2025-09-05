@@ -55,6 +55,7 @@ export const createAccount = async ({
     await database.createDocument(
       appwriteConfig.databaseId,
       appwriteConfig.usersCollection,
+
       ID.unique(),
       {
         fullName,
@@ -102,6 +103,7 @@ export const getCurrentUser = async () => {
     const user = await database.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.usersCollection,
+
       [Query.equal("accountId", result.$id)],
     );
 
