@@ -113,6 +113,3 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
-
-Do you want me to also add the **GitHub repo link** in the demo section, or just keep the Vercel live link?
-```
