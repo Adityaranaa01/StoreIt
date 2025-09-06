@@ -26,6 +26,10 @@
 
 A storage management and file sharing platform that lets users effortlessly upload, organize, and share files. Built with the latest Next.js 15 and the Appwrite Node SDK, utilizing advanced features for seamless file management.
 
+## 🌐 Live Demo
+
+🔗 [store-it-seven-pi.vercel.app](https://store-it-seven-pi.vercel.app)
+
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
 - React 19
@@ -75,7 +79,7 @@ Make sure you have the following installed on your machine:
 ```bash
 git clone https://github.com/Adityaranaa01/StoreIt.git
 cd StoreIt
-```
+````
 
 **Installation**
 
@@ -109,3 +113,6 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+
+Do you want me to also add the **GitHub repo link** in the demo section, or just keep the Vercel live link?
+```
